@@ -1,70 +1,43 @@
+const path= require('path');
+const express= require('express');
+const sgMail = require('@sendgrid/mail')
+// paths to express config directories
 
-// menu nav
-const menuNavButton= document.querySelector('#changing-menu-nav');
-const menuNavChoise= document.querySelector('.menu');
 
-menuNavButton.addEventListener('click', e=>{
-    
-    if(e.target.innerText === 'Main Courses'){
-       
-        menuNavChoise.childNodes[1].classList.add('show')
-        menuNavChoise.childNodes[3].classList.remove('show')
-        menuNavChoise.childNodes[5].classList.remove('show')
-    }else if(e.target.innerText === 'Drinks'){
-        
-        menuNavChoise.childNodes[1].classList.remove('show')
-        menuNavChoise.childNodes[3].classList.add('show')
-        menuNavChoise.childNodes[5].classList.remove('show')
-    }else if(e.target.innerText === 'Deserts'){
-        
-        menuNavChoise.childNodes[1].classList.remove('show')
-        menuNavChoise.childNodes[3].classList.remove('show')
-        menuNavChoise.childNodes[5].classList.add('show')
-    }
-})
+//setting app to express method for use
+const app= express();
+const port= process.env.PORT || 3000
 
-//the space sliter
-var slideIndex = 1;
-showSlides(slideIndex);
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+  app.use(express.static(path.join(__dirname, 'client')));
+ 
+  app.get(`/book/:name/:email/:datetime/:numberofpersons`, (req, res)=>{
+       console.log(req.params)
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+      sgMail.setApiKey('API')
+      const msg = {
+        to: req.params.email, // Change to your recipient
+        from: 'aqbaghi@atomiccode.uk', // Change to your verified sender
+        subject: 'Reservations at Artizan Cafe',
+        text: `Dear ${req.params.name}, Sorry to inform you but your reservations for ${req.params.numberofpersons} at ${req.params.datetime} in Artizan Cafe is temporarily closed due to new COVID_19 regulations. however you can stop by and get some takeaway coffee if you'd like :)`,
+      }
+      sgMail
+        .send(msg)
+        .then(() => {
+          console.log('Email sent')
+        })
+        .catch((error) => {
+          console.error(error)
+  })
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
+       res.send({good: 'good'})
+  })
+  
 
-var slideIndex = 0;
-showSlides();
+//listening to the server
+app.listen(port, ()=>{
+    console.log('web server up and running...');
+});
 
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 8000); // Change image every 2 seconds
-}
+// 
 

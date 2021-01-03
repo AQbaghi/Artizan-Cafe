@@ -1,0 +1,23 @@
+{
+  "name": "artizan-cafe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AQbaghi/Artizan-Cafe.git"
+  },
+  "author": "Abd Al Qader Baghi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AQbaghi/Artizan-Cafe/issues"
+  },
+  "homepage": "https://github.com/AQbaghi/Artizan-Cafe#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
+    "express": "^4.17.1"
+  }
+}
