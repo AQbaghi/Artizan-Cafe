@@ -8,12 +8,17 @@
 <body>
     <div class="header">
         <nav>
-            <ul>
+            <div class="nav-button">
+                <div id="line-one"></div>
+                <div id="line-two"></div>
+                <div id="line-three"></div>
+            </div>
+            <ul class="dropdown">
                 <li id="booking-button"><a  href="#">Book a Table</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">The Space</a></li>
-                <li><a href="#">Menu</a></li>
+                <li><a id="about-us-button-1" href="#">About Us</a></li>
+                <li><a id="services-button-1" href="#">Services</a></li>
+                <li><a id="specials-button-1" href="#">Specials</a></li>
+                <li><a id="menu-button-1" href="#">Menu</a></li>
             </ul>
         </nav>
         <h1>We are an Italian <span>Artizan</span> Cafe</h1>
@@ -137,7 +142,7 @@
     <div class="book-order">
         <h1>What are you still waiting for? </h1> 
         <p>We have something special to meet any taste! Make the first step to your culinary journey!</p>
-        <a  href="#">Book a Table</a>
+        <a id="booking-button-3" href="#">Book a Table</a>
     </div>
     <div class="cater">
         <h1>We cater any events</h1> 
@@ -242,7 +247,7 @@
             <form>
                 <input type="text" placeholder="Name">
                 <input type="email" placeholder="Email">
-                <input type="datetime" placeholder="Date and Time">
+                <input type="time" placeholder="Date and Time">
                 <input list="browsers">
                 <datalist id="browsers">
                     <option value="one">
@@ -258,22 +263,22 @@
         <div class="top-footer">
             <h4>Artizan Cafe</h4>
             <ul>
-                <li>specials</li>
-                <li>Menu</li>
-                <li>Services</li>
-                <li>About us</li>
-                <li>The space</li>
+                <li id="booking-button-2">Book a table</li>
+                <li id="menu-button-2">Menu</li>
+                <li id="services-button-2">Services</li>
+                <li id="about-us-button-2">About us</li>
+                <li id="specials-button-2">Specials</li>
             </ul>
             <ul>
-                <li>Developer's Portfolio</li>
-                <li>contact us</li>
-                <li>leave a messasge</li>
+                <li><a href="https://atomic-code-software.web.app/">Developer's Portfolio</a></li>
+                <li><a href="https://atomic-code-software.web.app/contact.html">contact us</a></li>
+                <li><a href="https://atomic-chat-30a14.web.app/">leave a messasge</a></li>
             </ul>
             <ul>
                 <li>follow us</li>
-                <li>icon</li>
-                <li>icon</li>
-                <li>icon</li>
+                <li><a href="https://github.com/AQbaghi">GIT HUB</a></li>
+                <li><a href="https://www.facebook.com/aq.poly">Facebook</a></li>
+                <li><a href="https://twitter.com/Aq_baghi">Twitter</a></li>
             </ul>
         </div>
         <div>
@@ -282,5 +287,6 @@
         </div>
     </footer>
 </body>
+
 <script src="./client-app.js"></script>
 </html> 

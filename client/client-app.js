@@ -1,3 +1,11 @@
+//header nav
+const navDropdown = document.querySelector('.header nav ul')
+const navDropdownButton = document.querySelector('.header nav .nav-button')
+
+navDropdownButton.addEventListener('click', e=>{
+  navDropdown.classList.toggle('show')
+})
+
 // menu nav
 const menuNavButton= document.querySelector('#changing-menu-nav');
 const menuNavChoise= document.querySelector('.menu');
@@ -71,8 +79,7 @@ function showSlides() {
 
 const form= document.querySelector('.emails .form form');
 
-form.addEventListener('submit', e=>{
-  e.preventDefault()
+form.addEventListener('submit', ()=>{
 
    fetch(`/book/${form.childNodes[1].value}/${form.childNodes[3].value}/${form.childNodes[5].value}/${form.childNodes[7].value}`).then(function (res) {
     var data= res.json()
@@ -87,8 +94,78 @@ form.addEventListener('submit', e=>{
   form.reset()
 })
 
+//onlicks to scroll
+
+//sections
+const emailsSection= document.querySelector('.emails')
+const menuSection= document.querySelector('.menu')
+const specialsSection= document.querySelector('#first-menu')
+const eventsSection= document.querySelector('.cater')
+const aboutSection= document.querySelector('.about')
+
+//buttons top nav
+const bookingButton1= document.querySelector('#booking-button')
+const menuButton1= document.querySelector('#menu-button-1')
+const aboutUsButton1= document.querySelector('#about-us-button-1')
+const servicesButton1= document.querySelector('#services-button-1')
+const specialsButton1= document.querySelector('#specials-button-1')
+//buttons footer
+const bookingButton2= document.querySelector('#booking-button-2')
+const menuButton2= document.querySelector('#menu-button-2')
+const aboutUsButton2= document.querySelector('#about-us-button-2')
+const servicesButton2= document.querySelector('#services-button-2')
+const specialsButton2= document.querySelector('#specials-button-2')
+
+const bookingButton3= document.querySelector('#booking-button-3')
 
 
+//nav buttons to scroll
+bookingButton1.addEventListener('click', e=>{
+  e.preventDefault()
+  emailsSection.scrollIntoView();
+})
+menuButton1.addEventListener('click', e=>{
+  e.preventDefault();
+  menuSection.scrollIntoView();
+})
+specialsButton1.addEventListener('click', e=>{
+  e.preventDefault();
+  specialsSection.scrollIntoView();
+})
+servicesButton1.addEventListener('click', e=>{
+  e.preventDefault();
+  eventsSection.scrollIntoView();
+})
+aboutUsButton1.addEventListener('click', e=>{
+  e.preventDefault();
+  aboutSection.scrollIntoView();
+})
+//footer buttons to scroll
+bookingButton2.addEventListener('click', e=>{
+  e.preventDefault()
+  emailsSection.scrollIntoView();
+})
+menuButton2.addEventListener('click', e=>{
+  e.preventDefault();
+  menuSection.scrollIntoView();
+})
+specialsButton2.addEventListener('click', e=>{
+  e.preventDefault();
+  specialsSection.scrollIntoView();
+})
+servicesButton2.addEventListener('click', e=>{
+  e.preventDefault();
+  eventsSection.scrollIntoView();
+})
+aboutUsButton2.addEventListener('click', e=>{
+  e.preventDefault();
+  aboutSection.scrollIntoView();
+})
+
+bookingButton3.addEventListener('click', e=>{
+  e.preventDefault();
+  emailsSection.scrollIntoView();
+})
 
 
 

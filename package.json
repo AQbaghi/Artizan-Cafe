@@ -18,6 +18,7 @@
   "homepage": "https://github.com/AQbaghi/Artizan-Cafe#readme",
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
 }

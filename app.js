@@ -1,6 +1,7 @@
 const path= require('path');
 const express= require('express');
 const sgMail = require('@sendgrid/mail')
+require('dotenv').config()
 // paths to express config directories
 
 
@@ -12,9 +13,8 @@ const port= process.env.PORT || 3000
   app.use(express.static(path.join(__dirname, 'client')));
  
   app.get(`/book/:name/:email/:datetime/:numberofpersons`, (req, res)=>{
-       console.log(req.params)
 
-      sgMail.setApiKey('API')
+      sgMail.setApiKey(`${process.env.SENDGRID_API_KEY}`)
       const msg = {
         to: req.params.email, // Change to your recipient
         from: 'aqbaghi@atomiccode.uk', // Change to your verified sender
@@ -29,14 +29,13 @@ const port= process.env.PORT || 3000
         .catch((error) => {
           console.error(error)
   })
-
        res.send({good: 'good'})
   })
   
 
 //listening to the server
 app.listen(port, ()=>{
-    console.log('web server up and running...');
+    console.log(`web server up and running on port ${port}...`);
 });
 
 // 
